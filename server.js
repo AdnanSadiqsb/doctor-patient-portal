@@ -58,7 +58,7 @@ app.post('/register',async function (req, res) {
   });
 
   app.post('/login',async function (req, res) {
-    try{
+
         console.log(req.body);
         const user=await User.findOne({email:req.body.email,password:req.body.password})
         if(user){
@@ -75,12 +75,7 @@ app.post('/register',async function (req, res) {
             })
         }
     }
-    catch{
-        res.status(400).json({
-            success:false,
-            message:"user not logged"
-        })
-    }
+
   });
 
   app.get('/doctors',async function (req, res) {
